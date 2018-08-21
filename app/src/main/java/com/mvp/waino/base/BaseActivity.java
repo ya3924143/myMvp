@@ -26,11 +26,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        unbinder = ButterKnife.bind(this);
         //初始化沉浸式
-        if (isImmersionBarEnabled())
+        if (isImmersionBarEnabled()) {
             initImmersionBar();
+        }
         setContentView(setLayoutId());
+        unbinder = ButterKnife.bind(this);
         initData();
         initView();
         setListener();
@@ -78,4 +79,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+        ImmersionBar.with(this).destroy();
+    }
 }
