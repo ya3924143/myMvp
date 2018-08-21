@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
-        BottomNavigationViewHelper.disableShiftMode(bnvHome);
+//        BottomNavigationViewHelper.disableShiftMode(bnvHome);
     }
 
 }
