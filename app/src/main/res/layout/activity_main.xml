@@ -16,6 +16,7 @@
 
     </FrameLayout>
 
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bnv_home"
         android:layout_width="match_parent"
@@ -23,5 +24,6 @@
         android:layout_gravity="bottom"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/home_menu" />
+
 
 </LinearLayout>
