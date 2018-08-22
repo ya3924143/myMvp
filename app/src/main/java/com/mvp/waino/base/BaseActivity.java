@@ -8,20 +8,24 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.trello.rxlifecycle2.LifecycleProvider;
+import com.trello.rxlifecycle2.android.ActivityEvent;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import me.yokeyword.fragmentation.SupportActivity;
 
 /**
  * @author waino
  * @date 2018/8/17
  * @desc todo
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends SupportActivity implements LifecycleProvider<ActivityEvent> {
 
     private InputMethodManager imm;
     protected ImmersionBar mImmersionBar;
-    private Unbinder unbinder;
+    Unbinder unbinder;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,7 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void initImmersionBar() {
         //在BaseActivity里初始化
         mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.init();
+        mImmersionBar.keyboardEnable(true).init();
     }
 
     protected abstract int setLayoutId();
@@ -82,7 +86,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbinder.unbind();
         ImmersionBar.with(this).destroy();
     }
 }
