@@ -70,7 +70,20 @@ public class MainActivity extends BaseActivity {
         bnvHome.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                showHideFragment(fragments[menuItem.getItemId()], fragments[menuItem.getItemId()]);
+                switch (menuItem.getItemId()) {
+                    case R.id.action_home:
+                        showHideFragment(fragments[0]);
+                        return true;
+                    case R.id.action_video:
+                        showHideFragment(fragments[1]);
+                        return true;
+                    case R.id.action_photo:
+                        showHideFragment(fragments[2]);
+                        return true;
+                    case R.id.action_my:
+                        showHideFragment(fragments[3]);
+                        return true;
+                }
                 return false;
             }
         });
