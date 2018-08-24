@@ -1,29 +1,36 @@
-package com.mvp.waino.home;
+package com.mvp.waino.home.fragment;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.mvp.waino.base.BaseFragment;
 import com.mvp.waino.mymvp.R;
+
+import butterknife.BindView;
 
 /**
  * @author waino
  * @date 2018/8/22
  * @desc todo
  */
-public class MeFragment extends BaseFragment {
+public class PhotoFragment extends BaseFragment {
 
-    public static MeFragment newInstance() {
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    public static PhotoFragment newInstance() {
 
         Bundle args = new Bundle();
 
-        MeFragment fragment = new MeFragment();
+        PhotoFragment fragment = new PhotoFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_me;
+        return R.layout.fragment_photo;
     }
 
     @Override
@@ -33,7 +40,7 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-
+        ImmersionBar.with(_mActivity).titleBar(toolbar);
     }
 
     @Override

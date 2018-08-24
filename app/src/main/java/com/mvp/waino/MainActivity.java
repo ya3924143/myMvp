@@ -9,17 +9,16 @@ import android.widget.FrameLayout;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.mvp.waino.base.BaseActivity;
-import com.mvp.waino.home.HomeFragment;
-import com.mvp.waino.home.MeFragment;
-import com.mvp.waino.home.PhotoFragment;
-import com.mvp.waino.home.VideoFragment;
+import com.mvp.waino.home.fragment.HomeFragment;
+import com.mvp.waino.home.fragment.MeFragment;
+import com.mvp.waino.home.fragment.PhotoFragment;
+import com.mvp.waino.home.fragment.VideoFragment;
 import com.mvp.waino.mymvp.R;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 
 import butterknife.BindView;
 import io.reactivex.Observable;
-import me.yokeyword.fragmentation.Fragmentation;
 import me.yokeyword.fragmentation.SupportFragment;
 
 

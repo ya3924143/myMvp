@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.android.FragmentEvent;
@@ -50,16 +51,17 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
             rootView = inflater.inflate(getLayout(), container, false);
         }
         unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
-        super.onLazyInitView(savedInstanceState);
         initView();
         initPresenter();
         initData();
+        return rootView;
     }
+
+//    @Override
+//    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
+//        super.onLazyInitView(savedInstanceState);
+//
+//    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -120,7 +122,6 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
     public void onDestroy() {
         super.onDestroy();
         lifecycle.onNext(FragmentEvent.DESTROY);
-
         unbinder.unbind();
     }
 
